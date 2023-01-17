@@ -39,26 +39,51 @@ def password_generate(p_n, p_l, p_d, p_u_c, p_l_c, p_s, p_s_s):
         chars += uppercase_letters
     if p_s == 1:
         chars += punctuation
+    chars = [c for c in chars]
+    password = []
+    if p_s_s == 1:
+        if p_d == 1:
+            chars.remove('0')
+            chars.remove('1')
+        if p_u_c == 1:
+            chars.remove('I')
+            chars.remove('L')
+            chars.remove('O')
+        if p_l_c == 1:
+            chars.remove('i')
+            chars.remove('l')
+            chars.remove('o')
+    for i in range(p_n):
+        pass_temp = []
+        for j in range(p_l):
+            pass_temp.append(random.choice(chars))
+        password.append(''.join(pass_temp))
+    return password
+
+
+
+
 
 
 print('Добро пожаловать в генератор паролей')
 
 print('Укажите количество паролей для генерации:')
-pass_number = validation_symbol()
+pass_num = validation_symbol()
 print('Укажите длину одного пароля:')
-pass_lenght = validation_symbol()
+pass_len = validation_symbol()
 print('Включить в пороль цифры 0123456789? y/n')
-pass_digit = validation_char()
+pass_dig = validation_char()
 print('Включить в пароль прописные буквы ABCDEFGHIJKLMNOPQRSTUVWXYZ? y/n')
-pass_upper_case = validation_char()
+pass_up_case = validation_char()
 print('Включить в пароль строчные буквы abcdefghijklmnopqrstuvwxyz? y/n')
-pass_lower_case = validation_char()
+pass_low_case = validation_char()
 print('Включить в пароль символы !#$%&*+-=?@^_? y/n')
-pass_symbols = validation_char()
+pass_sym = validation_char()
 print('Исключить из пароля похожие символы iI1lLoO0? y/n')
-pass_similar_symbols = validation_char()
+pass_s_sym = validation_char()
 
-password_generate(pass_number, pass_lenght, pass_digit, pass_upper_case, pass_lower_case, pass_symbols, pass_symbols)
+print(*password_generate(pass_num, pass_len, pass_dig, pass_up_case, pass_low_case, pass_sym, pass_s_sym), sep='\n')
+
 
 
 
