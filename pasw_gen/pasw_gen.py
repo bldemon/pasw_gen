@@ -5,7 +5,7 @@ def validation_symbol():
     flag = True
     while flag:
         symbol = input()
-        if symbol not in '1234567890':
+        if not symbol.isdigit():
             print('Введите цифру:')
             continue
         else:
@@ -27,16 +27,16 @@ def validation_char():
 
 def password_generate(p_n, p_l, p_d, p_u_c, p_l_c, p_s, p_s_s):
     digits = '0123456789'
-    lowercase_letters = 'abcdefghijklmnopqrstuvwxyz'
     uppercase_letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+    lowercase_letters = 'abcdefghijklmnopqrstuvwxyz'
     punctuation = '!#$%&*+-=?@^_'
     chars = ''
     if p_d == 1:
         chars += digits
     if p_u_c == 1:
-        chars += lowercase_letters
-    if p_l_c == 1:
         chars += uppercase_letters
+    if p_l_c == 1:
+        chars += lowercase_letters
     if p_s == 1:
         chars += punctuation
     chars = [c for c in chars]
@@ -61,10 +61,6 @@ def password_generate(p_n, p_l, p_d, p_u_c, p_l_c, p_s, p_s_s):
     return password
 
 
-
-
-
-
 print('Добро пожаловать в генератор паролей')
 
 print('Укажите количество паролей для генерации:')
@@ -83,9 +79,3 @@ print('Исключить из пароля похожие символы iI1lLo
 pass_s_sym = validation_char()
 
 print(*password_generate(pass_num, pass_len, pass_dig, pass_up_case, pass_low_case, pass_sym, pass_s_sym), sep='\n')
-
-
-
-
-
-
