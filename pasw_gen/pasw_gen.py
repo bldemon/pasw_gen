@@ -67,7 +67,7 @@ print('Укажите количество паролей для генерац�
 pass_num = validation_symbol()
 print('Укажите длину одного пароля:')
 pass_len = validation_symbol()
-print('Включить в пороль цифры 0123456789? y/n')
+print('Включить в пароль цифры 0123456789? y/n')
 pass_dig = validation_char()
 print('Включить в пароль прописные буквы ABCDEFGHIJKLMNOPQRSTUVWXYZ? y/n')
 pass_up_case = validation_char()
